@@ -1,21 +1,33 @@
-import { useState } from 'react';
 import './App.css';
-import {Text} from "./Text"
+import Axios from "axios";
+import {useEffect, useState} from "react";
 
 function App() {
-  const [showText, setShowText] = useState(false);
+  const [generateExcuse,setGenerateExcuse]=useState("");
+
+  const fetchExcuse = (excuse) => {
+    Axios.get(`https://excuser-three.vercel.app/v1/excuse/${excuse}/`).then((res)=>{
+      setGenerateExcuse(res.data[0].excuse);
+  });
+  }
+
+
+  
+  
 
   return (
     <div className="App">
-      <button
-        onClick={() => {
-          setShowText(!showText);
-        }}
-      >
-        Show Text
+      <h1>Generate Excuses</h1>
+      <button onClick={()=>fetchExcuse("party")}>
+        Party
       </button>
-
-      {showText && <Text />}
+      <button onClick={()=>fetchExcuse("family")}>
+        Family
+      </button>
+      <button onClick={()=>fetchExcuse("college")}>
+        College
+      </button>
+      <h1>{generateExcuse}</h1>
     </div>
   );
 }
