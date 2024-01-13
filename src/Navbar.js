@@ -4,7 +4,7 @@ export const Navbar = () =>{
         <div>
         <Link to="/">Home</Link>
         <Link to="/contact">Contact</Link>
-        <Link to="/about">About</Link>
+        <Link to="/profile">Profile</Link>
       </div>
     )
 }
