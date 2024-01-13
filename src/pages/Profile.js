@@ -1,13 +1,3 @@
-import { ChangeProfile } from "../components/ChangeProfile"
-import { useContext } from "react"
-import {AppContext} from "../App"
-
 export const Profile = () =>{
-    const {username} = useContext(AppContext);
-    
-    return <div>
-        {username}
-        <ChangeProfile/>
-
-    </div>
+    return <h1>This is a Profile Page</h1>
 }
